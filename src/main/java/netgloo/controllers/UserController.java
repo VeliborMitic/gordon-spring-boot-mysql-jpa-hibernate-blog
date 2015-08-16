@@ -1,14 +1,15 @@
 package netgloo.controllers;
 
 import netgloo.models.User;
-import netgloo.models.UserDao;
+import netgloo.models.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * A class to test interactions with the MySQL database using the UserDao class.
+ * A class to test interactions with the MySQL database using the UserDAO class.
  *
  * @author netgloo
  */
@@ -19,10 +20,15 @@ public class UserController {
     // PUBLIC METHODS
     // ------------------------
 
-    @RequestMapping("/gordon")
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     @ResponseBody
-    public String gordon(String name) {
-        return name;
+    public String all() {
+        Iterable<User> users = userDAO.findAll();
+        String ret = "";
+        for (User user : users) {
+            ret += String.valueOf(user.getId())+"\t"+user.getName()+"\t"+user.getEmail()+"\n";
+        }
+        return ret;
     }
 
     /**
@@ -38,7 +44,7 @@ public class UserController {
         User user = null;
         try {
             user = new User(email, name);
-            userDao.save(user);
+            userDAO.save(user);
         } catch (Exception ex) {
             return "Error creating the user: " + ex.toString();
         }
@@ -56,7 +62,7 @@ public class UserController {
     public String delete(long id) {
         try {
             User user = new User(id);
-            userDao.delete(user);
+            userDAO.delete(user);
         } catch (Exception ex) {
             return "Error deleting the user:" + ex.toString();
         }
@@ -74,7 +80,7 @@ public class UserController {
     public String getByEmail(String email) {
         String userId;
         try {
-            User user = userDao.findByEmail(email);
+            User user = userDAO.findByEmail(email);
             userId = String.valueOf(user.getId());
         } catch (Exception ex) {
             return "User not found";
@@ -95,10 +101,10 @@ public class UserController {
     @ResponseBody
     public String updateUser(long id, String email, String name) {
         try {
-            User user = userDao.findOne(id);
+            User user = userDAO.findOne(id);
             user.setEmail(email);
             user.setName(name);
-            userDao.save(user);
+            userDAO.save(user);
         } catch (Exception ex) {
             return "Error updating the user: " + ex.toString();
         }
@@ -110,6 +116,6 @@ public class UserController {
     // ------------------------
 
     @Autowired
-    private UserDao userDao;
+    private UserDAO userDAO;
 
 } // class UserController
