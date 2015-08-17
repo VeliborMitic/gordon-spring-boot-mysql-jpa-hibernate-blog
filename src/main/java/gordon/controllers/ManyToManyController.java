@@ -1,8 +1,10 @@
 package gordon.controllers;
 
+import gordon.models.many_to_many.dao.StudentDAO;
+import gordon.models.many_to_many.dao.TeacherDAO;
 import gordon.models.one_to_many.Address;
-import gordon.models.one_to_many.dao.AddressDAO;
 import gordon.models.one_to_many.Person;
+import gordon.models.one_to_many.dao.AddressDAO;
 import gordon.models.one_to_many.dao.PersonDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,23 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class MainController {
+@RequestMapping("many2many")
+public class ManyToManyController {
 
   @RequestMapping("/")
   @ResponseBody
   public String index() {
-    return "Proudly handcrafted by " +
-        "<a href='http://gordon.com/en'>gordon</a> :)";
+    return "this is the one to many route index";
   }
 
-  @RequestMapping("/test")
+  @RequestMapping("/create")
   @ResponseBody
-  public String test(){
+  public String create(){
     try {
-      Person person = new Person("gordon",25,null);
-      Address address = new Address("shanghai","jiading","jiangqiao");
-      person.addAddress(address);
-      personDAO.save(person);
+
     } catch (Exception ex) {
       return "Error creating the user: " + ex.toString();
     }
@@ -37,8 +36,7 @@ public class MainController {
   @ResponseBody
   public String deletePerson(long id){
     try {
-      Person person = personDAO.findOne(id);
-      personDAO.delete(person);
+
     } catch (Exception ex) {
       return "Error creating the user: " + ex.toString();
     }
@@ -49,8 +47,7 @@ public class MainController {
   @ResponseBody
   public String deleteAddress(long id){
     try {
-      Address address = new Address(id);
-      addressDAO.delete(address);
+
     } catch (Exception ex) {
       return "Error creating the user: " + ex.toString();
     }
@@ -58,9 +55,9 @@ public class MainController {
   }
 
   @Autowired
-  private PersonDAO personDAO;
+  private StudentDAO studentDAO;
 
   @Autowired
-  private AddressDAO addressDAO;
+  private TeacherDAO teacherDAO;
 
 }

@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author gordon
  */
 @Controller
-public class UserController {
+@RequestMapping("/one2one")
+public class OneToOneController {
 
     // ------------------------
     // PUBLIC METHODS
@@ -118,4 +119,4 @@ public class UserController {
     @Autowired
     private UserDAO userDAO;
 
-} // class UserController
+} // class OneToOneController
