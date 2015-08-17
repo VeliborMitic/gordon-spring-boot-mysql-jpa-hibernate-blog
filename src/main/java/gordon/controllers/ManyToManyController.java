@@ -62,7 +62,7 @@ public class ManyToManyController {
             Student student = new Student(name);
             student.addTeacher(teacher);
             teacher.addStudent(student);
-            teacherDAO.save(teacher);
+            studentDAO.save(student);
         } catch (Exception ex) {
             return "Error creating the user: " + ex.toString();
         }
