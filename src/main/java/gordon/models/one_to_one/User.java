@@ -1,4 +1,4 @@
-package gordon.models;
+package gordon.models.one_to_one;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

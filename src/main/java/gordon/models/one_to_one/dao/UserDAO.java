@@ -1,7 +1,8 @@
-package gordon.models;
+package gordon.models.one_to_one.dao;
 
 import javax.transaction.Transactional;
 
+import gordon.models.one_to_one.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**

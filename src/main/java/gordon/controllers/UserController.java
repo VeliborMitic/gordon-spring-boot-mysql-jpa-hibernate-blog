@@ -1,7 +1,7 @@
 package gordon.controllers;
 
-import gordon.models.User;
-import gordon.models.UserDAO;
+import gordon.models.one_to_one.User;
+import gordon.models.one_to_one.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
