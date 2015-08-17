@@ -1,4 +1,4 @@
-package netgloo.models;
+package gordon.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

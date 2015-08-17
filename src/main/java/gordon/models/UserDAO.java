@@ -1,4 +1,4 @@
-package netgloo.models;
+package gordon.models;
 
 import javax.transaction.Transactional;
 
@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
  * The magic is that such methods must not be implemented, and moreover it is
  * possible create new query methods working only by defining their signature!
  * 
- * @author netgloo
+ * @author gordon
  */
 @Transactional
 public interface UserDAO extends CrudRepository<User, Long> {

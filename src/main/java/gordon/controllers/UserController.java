@@ -1,7 +1,7 @@
-package netgloo.controllers;
+package gordon.controllers;
 
-import netgloo.models.User;
-import netgloo.models.UserDAO;
+import gordon.models.User;
+import gordon.models.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * A class to test interactions with the MySQL database using the UserDAO class.
  *
- * @author netgloo
+ * @author gordon
  */
 @Controller
 public class UserController {

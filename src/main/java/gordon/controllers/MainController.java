@@ -1,6 +1,6 @@
-package netgloo.controllers;
+package gordon.controllers;
 
-import netgloo.models.*;
+import gordon.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ public class MainController {
   @ResponseBody
   public String index() {
     return "Proudly handcrafted by " +
-        "<a href='http://netgloo.com/en'>netgloo</a> :)";
+        "<a href='http://gordon.com/en'>gordon</a> :)";
   }
 
   @RequestMapping("/test")

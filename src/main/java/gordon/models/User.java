@@ -1,4 +1,4 @@
-package netgloo.models;
+package gordon.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
  * The Entity annotation indicates that this class is a JPA entity.
  * The Table annotation specifies the name for the table in the db.
  *
- * @author netgloo
+ * @author gordon
  */
 @Entity
 @Table(name = "users")
